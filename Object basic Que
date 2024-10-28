@@ -142,6 +142,66 @@ const user = {
     }
 };
 
+***Advance Que***
+task 1-
+
+function deepCopy(obj) {
+   
+    if (obj === null || typeof obj !== 'object') {
+        return obj;
+    }
+
+   
+    if (obj instanceof Date) {
+        return new Date(obj.getTime());
+    }
+
+   
+    if (obj instanceof RegExp) {
+        return new RegExp(obj);
+    }
+
+   
+    if (Array.isArray(obj)) {
+        return obj.map(item => deepCopy(item));
+    }
+
+    
+    const copy = {};
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            copy[key] = deepCopy(obj[key]);
+        }
+    }
+
+    return copy;
+}
+
+
+const original = {
+    name: 'Alice',
+    age: 25,
+    hobbies: ['reading', 'hiking'],
+    nestedObj: {
+        greet() { console.log('Hello!'); },
+        dateOfBirth: new Date(1995, 11, 17),
+        regex: /abc/i
+    }
+};
+
+const copy = deepCopy(original);
+
+
+console.log(copy);
+copy.nestedObj.greet();   
+console.log(copy.nestedObj.dateOfBirth);  
+console.log(copy.nestedObj.regex);        
+
+
+copy.hobbies.push('swimming');
+console.log(original.hobbies);  
+console.log(copy.hobbies);      
+
 
 user.greet();         
 user.updateAge(30);    
