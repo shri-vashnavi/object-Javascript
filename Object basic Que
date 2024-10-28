@@ -1,0 +1,148 @@
+***Basic Que***
+
+Task 1 - 
+
+
+let car = {
+    make: 'Toyota',
+    model: 'Corolla',
+    year: 2020,
+    color: 'Blue'
+};
+
+
+console.log(car);
+
+// Add the owner property
+car.owner = 'John Doe';
+
+
+console.log(car);
+
+Task 2-
+function getProperty(obj, propName) {
+   
+    if (obj.hasOwnProperty(propName)) {
+        return obj[propName];
+    } else {
+        return `Property "${propName}" does not exist.`;
+    }
+}
+
+
+const car = {
+    make: 'Toyota',
+    model: 'Corolla',
+    year: 2020,
+    color: 'Blue'
+};
+
+console.log(getProperty(car, 'make'));   
+console.log(getProperty(car, 'owner'));
+
+Task 3-
+
+function printObjectProperties(obj) {
+ 
+    for (let key in obj) {
+       
+        if (obj.hasOwnProperty(key)) {
+            console.log(`${key}: ${obj[key]}`);
+        }
+    }
+}
+
+
+const car = {
+    make: 'Toyota',
+    model: 'Corolla',
+    year: 2020,
+    color: 'Blue'
+};
+
+printObjectProperties(car);
+
+Task 4-
+
+function mergeObjects(obj1, obj2) {
+    return { ...obj1, ...obj2 };
+}
+
+
+const obj1 = {
+    name: 'Alice',
+    age: 25,
+    city: 'Noida'
+};
+
+const obj2 = {
+    age: 30,
+    city: 'Delhi',
+    occupation: 'Engineer'
+};
+
+const mergedObject = mergeObjects(obj1, obj2);
+console.log(mergedObject);
+
+
+Task 5-
+
+function deleteProperty(obj, propName) {
+    
+    if (obj.hasOwnProperty(propName)) {
+        delete obj[propName];
+        return true; 
+    } else {
+        return false; 
+    }
+}
+
+
+const car = {
+    make: 'Toyota',
+    model: 'Corolla',
+    year: 2020,
+    color: 'Blue'
+};
+
+console.log(deleteProperty(car, 'color')); 
+console.log(car);  2020 }
+
+console.log(deleteProperty(car, 'owner')); 
+
+Task 6-
+
+function hasProperty(obj, propName) {
+    return obj.hasOwnProperty(propName);
+}
+
+const car = {
+    make: 'Toyota',
+    model: 'Corolla',
+    year: 2020,
+    color: 'Blue'
+};
+
+console.log(hasProperty(car, 'make'));   
+console.log(hasProperty(car, 'owner'));  
+
+Task 7-
+
+const user = {
+    name: 'Alice',
+    age: 25,
+
+    greet() {
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    },
+
+    updateAge(newAge) {
+        this.age = newAge;
+        console.log(`Age updated to ${this.age}.`);
+    }
+};
+
+
+user.greet();         
+user.updateAge(30);    
+user.greet();         
